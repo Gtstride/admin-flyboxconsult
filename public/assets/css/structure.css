@@ -78,9 +78,9 @@ code {
   margin-top: 56px; }
 
 #content {
-  width: 50%;
+  width: 78%;
   flex-grow: 8;
-  margin-top: 80px;
+  margin-top: 100px;
   margin-bottom: 0;
   margin-left: 255px;
   -webkit-transition: .3s ease all;
@@ -223,8 +223,10 @@ code {
     opacity: 1;
     width: 47px; }
     .header-container .navbar-nav.theme-brand .theme-logo img {
-      width: 48px;
-      height: 48px; border-radius: 6px; }
+    width: 184px;
+    height: 46px;
+    border-radius: 6px;
+    margin-left: -5px;}
 
 .header-container .navbar-nav .theme-text {
   align-self: center;
