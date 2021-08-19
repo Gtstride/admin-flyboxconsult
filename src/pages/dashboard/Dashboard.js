@@ -1,11 +1,19 @@
 import React from 'react'
+import Navbar from '../../components/shared/Navbar'
+import SideBar from '../../components/shared/Sidebar'
+import AustraliaStudyTable from '../education/AustraliaTable'
 
-export default function Dashboard() {
+const Dashboard = () => {
   return (
     <div >
       THis is Dashboard
+      <Navbar />
+      <SideBar />
 
-      <button className="btn btn-success mt-10 ml-5" value="submit" ><a href='/'>Log Out</a></button>
+      {/* <AustraliaStudyTable /> */}
+
     </div>
   )
 }
+
+export default Dashboard
