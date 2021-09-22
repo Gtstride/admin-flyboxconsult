@@ -9,7 +9,7 @@ const Navbar = () => {
       <header className="header navbar navbar-expand-sm">
         <ul className="navbar-nav theme-brand flex-row  text-center">
           <li className="nav-item theme-logo">
-            <a href="index.html">
+            <a href="#/">
               <img src={logo} className="navbar-logo" alt="logo" />
             </a>
           </li>

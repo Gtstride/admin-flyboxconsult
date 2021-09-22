@@ -13,8 +13,7 @@ import { httpPostWithNoToken } from '../../components/helper/api'
 
 
 const LoginPage = () => {
-  const history = useHistory();
-
+  let history = useHistory();
   const [submitting, setSubmitting] = useState(false);
   const [inputValues, setInputValues] = useState({
     email: "",
@@ -36,8 +35,9 @@ const LoginPage = () => {
 
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    
     try {
+      e.preventDefault();
       setSubmitting(true);
       // setLoading(true);
 
@@ -46,18 +46,19 @@ const LoginPage = () => {
         password: inputValues.password,
       };
       const response = await httpPostWithNoToken("login", data);
-      console.log(response);
+      console.log(response)
+      // console.log(response);
       // console.log(data);
       Swal.fire({
         title: "Successful 😀",
         text: `${"You have successfully logged in as"} ${data.email} ${"& as a super admin"}`,
         // type: "success",
       });
-      localStorage.setItem("token", data.response)
-      // localStorage.setItem("user", JSON.stringify(response.user));
+      // localStorage.getItem("token", response.)
+      localStorage.setItem("token", response.token)
+      localStorage.setItem("user", JSON.stringify(response.user));
 
       history.push('/admin_dashboard');
-
       // console.log(response);
       // console.log(data.response)
       setSubmitting(false);

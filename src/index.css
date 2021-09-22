@@ -11,3 +11,42 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* Styles for the pagination Buttons in TrucksTable.js */
+.paginationButton {
+  /* width: 80%; */
+  /* height: 40px; */
+  list-style: none;
+  display: flex;
+  /* justify-content: center; */
+  margin: 0;
+  margin-left: 187px;
+  /* margin-top: -40px; */
+  justify-content: flex-end;
+  /* flex: unset; */
+  margin-top: 20px;
+}
+
+.paginationButton a {
+  padding: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  border: 1px solid #10c02e;
+  color: #ad8d7c;
+  cursor: pointer;
+}
+
+.paginationButton a:hover {
+  color: white;
+  background-color: #2b2eff;
+}
+
+.paginationActive a {
+  color: white;
+  /* background-color: #2b2eff; */
+}
+
+.paginationDisabled a {
+  color: white;
+  background-color: grey;
+}

@@ -380,7 +380,7 @@ const ProfilePage = () => {
             <div className="footer-section f-section-1">
               <p className>
                 Copyright © 2021{" "}
-                <a target="_blank" href="https://designreset.com">
+                <a target="_blank" href="https://designreset.com" rel="noreferrer">
                   DesignReset
                 </a>
                 , All rights reserved.
