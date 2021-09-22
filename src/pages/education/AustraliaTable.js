@@ -139,46 +139,48 @@ const AustraliaTable = () => {
 
   return (
     <>
-      <Navbar />
-      <Sidebar />
-      <div id="content" className="main-content">
-        <div className="container">
-          <div className="row layout-top-spacing">
-            <div id="tableDropdown" className="col-lg-12 col-12 layout-spacing">
-              <div className="statbox widget box box-shadow">
-                <div className="widget-header">
-                  <div className="row">
-                    <div className="col-xl-12 col-md-12 col-sm-12 col-12">
-                      <h4>AUSTRALIA TABLE</h4>
+      <div className="main-container" id="container">
+        <Navbar />
+        <Sidebar />
+        <div id="content" className="main-content">
+          <div className="container">
+            <div className="row layout-top-spacing">
+              <div id="tableDropdown" className="col-lg-12 col-12 layout-spacing">
+                <div className="statbox widget box box-shadow">
+                  <div className="widget-header">
+                    <div className="row">
+                      <div className="col-xl-12 col-md-12 col-sm-12 col-12">
+                        <h4>AUSTRALIA TABLE</h4>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="widget-content widget-content-area">
-                  <div className="table-responsive">
-                    <table className="table table-bordered mb-4">
-                      <thead>
-                        <tr>
-                          {renderTableHeader()}
-                        </tr>
-                      </thead>
-                      <tbody> {renderBodyData()} </tbody>
-                    </table>
-                  </div>
+                  <div className="widget-content widget-content-area">
+                    <div className="table-responsive">
+                      <table className="table table-bordered mb-4">
+                        <thead>
+                          <tr>
+                            {renderTableHeader()}
+                          </tr>
+                        </thead>
+                        <tbody> {renderBodyData()} </tbody>
+                      </table>
+                    </div>
 
-                </div>
-                <div className="tableFooter">
-                  <ReactPaginate
-                    className="paginateButton"
-                    previousLabel={"Previous"}
-                    nextLabel={"Next"}
-                    pageCount={pageCount}
-                    onPageChange={changePage}
-                    containerClassName={"paginationButton"}
-                    previousLinkClassName={"previousButton"}
-                    nextLinkClassName={"nextButton"}
-                    disabledClassName={"paginationDisabled"}
-                    activeClassName={"paginationActive"}
-                  />
+                  </div>
+                  <div className="tableFooter">
+                    <ReactPaginate
+                      className="paginateButton"
+                      previousLabel={"Previous"}
+                      nextLabel={"Next"}
+                      pageCount={pageCount}
+                      onPageChange={changePage}
+                      containerClassName={"paginationButton"}
+                      previousLinkClassName={"previousButton"}
+                      nextLinkClassName={"nextButton"}
+                      disabledClassName={"paginationDisabled"}
+                      activeClassName={"paginationActive"}
+                    />
+                  </div>
                 </div>
               </div>
             </div>

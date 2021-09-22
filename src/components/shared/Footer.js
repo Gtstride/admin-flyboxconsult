@@ -5,13 +5,13 @@ const Footer = () => {
     <div id="content" className="main-content">
       <div className="footer-wrapper">
         <div className="footer-section f-section-1">
-          <p className>
+          <p className="true">
             Copyright © 2021{" "}
             <a target="_blank" rel="noreferrer" href="https://designreset.com"> ELYNORE TECH </a> , All rights reserved.
           </p>
         </div>
         <div className="footer-section f-section-2">
-          <p className>Coded with{" "}
+          <p className="true">Coded with{" "}
             <svg
               xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none"
               stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="feather feather-heart">

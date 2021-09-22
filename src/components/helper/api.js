@@ -25,7 +25,7 @@ export const httpPostWithNoToken = async (url, fd) => {
         return resolve(res);
       })
       .catch((error) => {
-        console.log("here>>", error.response, error.response.data);
+        // console.log("here>>", error.response, error.response.data);
         // console.log(error.response)
         // console.log(error.response.data.status)
         let error_msg = {
@@ -68,11 +68,11 @@ export const httpGetWithToken = async (url) => {
       })
       .then(({ data }) => {
         let res = data.response ? data.response : data
-        console.log(res)
+        // console.log(res)
         return resolve(res);
       })
       .catch((error) => {
-        console.log("Get>>", error.response);
+        // console.log("Get>>", error.response);
         let error_message =
           Swal.fire({
             icon: 'error',
@@ -102,6 +102,7 @@ export const httpGetWithToken = async (url) => {
  */
 export const httpDeleteWithToken = async (url, fd) => {
   return new Promise((resolve, reject) => {
+    // const token = localStorage.getItem("token");
     axios.delete(`${baseUrl}${url}`, {
       headers: {
         'x-access-token': token
@@ -110,7 +111,7 @@ export const httpDeleteWithToken = async (url, fd) => {
     })
       .then(({ data }) => {
         let res = data.response ? data.response : data
-        console.log(data);
+        // console.log(data);
         Swal.fire({
           icon: 'success',
           text: 'Successfully Deleted'
@@ -126,11 +127,9 @@ export const httpDeleteWithToken = async (url, fd) => {
         let error_message =
           Swal.fire({
             icon: 'error',
-            title: 'Oops...',
+            title: `{Oops... ${error.message} ${'Something went wrong, Please check your connection, & try again or contact support...!'}`,
             // text: `${error.message} ${'Something went wrong, Please check your connection and try again or contact support...!'}`,
             text: error.message
-            // text: '. ',
-            // footer: '<a href="/admin/dashboard">Or go back to the homepage ?</a>'
           });
         if (
           error &&

@@ -88,7 +88,7 @@ const LoginPage = () => {
                   <img src={logo} alt="" style={{ height: "2em", width: "100%" }} />
                 </h2>
               </span>
-              <h3 className="company_title text-white">Fly Box Consult</h3>
+              {/* <h3 className="company_title text-white">Fly Box Consult</h3> */}
             </div>
             <div className="col-md-8 col-xs-12 col-sm-12 login_form ">
               <div className="container-fluid">
