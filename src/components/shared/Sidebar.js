@@ -213,14 +213,8 @@ const SideBar = () => {
                 </svg>
               </div>
             </a>
-            <ul
-              className="collapse submenu list-unstyled"
-              id="datatables"
-              data-parent="#accordionExample"
-            >
-              <li>
-                <a href="/work_in_lithuania"> Work in Lithuania </a>
-              </li>
+            <ul className="collapse submenu list-unstyled" id="datatables" data-parent="#accordionExample">
+              <li><a href="/work_in_lithuania"> Work in Lithuania </a></li>
               {/* <li>
                 <a href="table_dt_striped_table.html"> Striped Table </a>
               </li> */}
@@ -247,24 +241,10 @@ const SideBar = () => {
             </div>
           </li>
           <li className="menu">
-            <a
-              href="#users"
-              data-toggle="collapse"
-              aria-expanded="false"
-              className="dropdown-toggle"
-            >
+            <a href="#users" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">
               <div className>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width={24}
-                  height={24}
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="feather feather-users"
+                <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="feather feather-users"
                 >
                   <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
                   <circle cx={9} cy={7} r={4} />
@@ -290,18 +270,9 @@ const SideBar = () => {
                 </svg>
               </div>
             </a>
-            <ul
-              className="collapse submenu list-unstyled"
-              id="users"
-              data-parent="#accordionExample"
-            >
-              <li>
-                <a href="/contact_us"> Contact Us </a>
-              </li>
-              <li>
-                <a href="/get_information"> Get More Information
-                </a>
-              </li>
+            <ul className="collapse submenu list-unstyled" id="users" data-parent="#accordionExample">
+              <li> <a href="/contact_us"> Contact Us </a></li>
+              <li><a href="/get_information"> Get More Information</a></li>
             </ul>
           </li>
         </ul>
