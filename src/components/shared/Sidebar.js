@@ -9,8 +9,8 @@ const SideBar = () => {
           <figure className="user-cover-image" />
           <div className="user-info">
             <img src={avatar} alt="avatar" />
-            <h6 className>Welcome ADMIN</h6>
-            <p className>Blessing Oyediran</p>
+            <h6 className="true">Welcome ADMIN</h6>
+            <p className="true">Blessing Oyediran</p>
           </div>
         </div>
         <div className="shadow-bottom" />
@@ -22,7 +22,7 @@ const SideBar = () => {
               aria-expanded="true"
               className="dropdown-toggle"
             >
-              <div className>
+              <div className="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={24}
@@ -95,7 +95,7 @@ const SideBar = () => {
               aria-expanded="false"
               className="dropdown-toggle"
             >
-              <div className>
+              <div className="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={24}
@@ -177,7 +177,7 @@ const SideBar = () => {
               aria-expanded="false"
               className="dropdown-toggle"
             >
-              <div className>
+              <div className="true">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width={24}
@@ -237,12 +237,12 @@ const SideBar = () => {
               >
                 <line x1={5} y1={12} x2={19} y2={12} />
               </svg>
-              <span>GENERAL ENQURIES</span>
+              <span>ENQURIES</span>
             </div>
           </li>
           <li className="menu">
             <a href="#users" data-toggle="collapse" aria-expanded="false" className="dropdown-toggle">
-              <div className>
+              <div className="true">
                 <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24"
                   fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="feather feather-users"
                 >

@@ -17,7 +17,7 @@ import Footer from './components/shared/Footer';
 
 const MainApp = () => {
   return (
-    <div >
+    <div className="sidebar-noneoverflow">
       <Router>
         <Switch>
           <Route exact path='/' component={LoginPage} />
@@ -35,9 +35,10 @@ const MainApp = () => {
           <Route exact path='*' component={NotFound} />
         </Switch>
       </Router>
+      <Footer />
 
-      <Footer/>
     </div>
+    
   );
 }
 
