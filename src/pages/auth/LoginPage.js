@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 // Packages 
 import { useHistory } from "react-router-dom";
 import { withRouter } from "react-router";
 import Swal from 'sweetalert2'
+
 
 // Routes 
 import logo from '../../img/logo-b.png'
@@ -11,14 +12,18 @@ import { LoginFormStyle } from "./LoginPageStyle"
 import { httpPostWithNoToken } from '../../components/helper/api'
 
 
-
 const LoginPage = () => {
   let history = useHistory();
   const [submitting, setSubmitting] = useState(false);
+  const [passwordShown, setPasswordShown] = useState(false);
   const [inputValues, setInputValues] = useState({
     email: "",
     password: "",
   });
+
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -33,9 +38,7 @@ const LoginPage = () => {
     });
   };
 
-
   const handleSubmit = async (e) => {
-    
     try {
       e.preventDefault();
       setSubmitting(true);
@@ -59,13 +62,10 @@ const LoginPage = () => {
       localStorage.setItem("user", JSON.stringify(response.user));
 
       history.push('/admin_dashboard');
-      // console.log(response);
-      // console.log(data.response)
       setSubmitting(false);
       clearForm();
       // setLoading(false);
     } catch (error) {
-
       console.log(error)
       Swal.fire({
         title: "Sorry 😞",
@@ -76,6 +76,11 @@ const LoginPage = () => {
       // clearForm();
     }
   };
+
+  useEffect(() => {
+
+  }, [])
+
 
   return (
     <>
@@ -110,8 +115,8 @@ const LoginPage = () => {
                     </div>
                     <div className="row">
                       <input
-                        type="password"
-                        // type={passwordShown ? "text" : "password"}
+                        // type="password"
+                        type={passwordShown ? "text" : "password"}
                         name="password"
                         // id="password"
                         className="form__input"
@@ -119,6 +124,12 @@ const LoginPage = () => {
                         value={inputValues.password}
                         onChange={handleChange}
                       />
+
+                      <span onClick={togglePassword} className="visibility"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
+                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
+                      </svg></span>
+
                     </div>
                     <div className="row">
                       <input

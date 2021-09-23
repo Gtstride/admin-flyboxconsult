@@ -2,11 +2,14 @@ import React, { useState, useEffect } from 'react'
 
 // Import Packages here
 import ReactPaginate from 'react-paginate'
+import { Button } from 'react-bootstrap'
 import Swal from "sweetalert2"
 
 import Navbar from '../../components/shared/Navbar'
 import Sidebar from '../../components/shared/Sidebar'
-import { httpGetWithToken } from '../../components/helper/api'
+import Footer from '../../components/shared/Footer'
+import PreLoader from '../../components/shared/PreLoader'
+import { httpGetWithToken, httpDeleteWithToken } from '../../components/helper/api'
 
 
 const UKTable = () => {
@@ -26,7 +29,7 @@ const UKTable = () => {
     setPageNumber(selected)
   }
 
-  const getAllCanadaSubmittedForms = async () => {
+  const getAllUKSubmittedForms = async () => {
     try {
       setIsLoading(true);
       let res = await httpGetWithToken("uk_forms");
@@ -42,8 +45,24 @@ const UKTable = () => {
     }
   };
 
+  const deleteSingleDetail = async (id) => {
+    console.log(id)
+    try {
+      let response = await httpDeleteWithToken(`uk/${id}`, { id: id });
+      console.log(response);
+      setIsLoading(true);
+      Swal.fire({
+        title: "Successfully Deleted",
+        // text: response.data
+      });
+      getAllUKSubmittedForms();
+    } catch (error) {
+      console.log("error", error.response);
+    }
+  }
+
   useEffect(() => {
-    getAllCanadaSubmittedForms();
+    getAllUKSubmittedForms();
   }, [])
 
 
@@ -51,7 +70,7 @@ const UKTable = () => {
     let headerElement =
       [
         "#", "email", "phone_Number", "given_Name", "middle_Name", "family_Name", "birthDate", "house_Address", "immigration_History", "country_Of_Citizenship",
-        "gender", " uk_Denial_Letter", "program_level", "highest_Level_Of_Education", "desired_course_of_study", "action", "status"
+        "gender", " uk_Denial_Letter", "program_level", "highest_Level_Of_Education", "desired_course_of_study", "action"
       ];
     return headerElement.map((key, index) => {
       return <th key={index}>{key.toUpperCase()}</th>;
@@ -64,12 +83,12 @@ const UKTable = () => {
       getAllUKFormsSubmitted &&
       getAllUKFormsSubmitted
         .slice(pagesVisited, pagesVisited + formsSubmittedPerPage)
-        .map(({ id, email, phoneNumber, givenName, middleName, familyName, birthDate, houseAddress, immigrationHistory, countryOfCitizenship,
+        .map(({ _id, email, phoneNumber, givenName, middleName, familyName, birthDate, houseAddress, immigrationHistory, countryOfCitizenship,
           gender, visaDenialLetter, programLevel, highestLevelOfEducation, desiredCourseOfStudy
         }
         ) => {
           return (
-            <tr key={id}>
+            <tr key={_id}>
               <td>{"#"}</td>
               <td>{email}</td>
               <td>{phoneNumber}</td>
@@ -117,18 +136,23 @@ const UKTable = () => {
                     </svg>
                   </a>
                   <div className="dropdown-menu" aria-labelledby="dropdownMenuLink4">
-                    {!loading
-                      ?
-                      (
-                        <button class="btn btn-info mb-3" type="button" onClick={null}>Download</button>
-                      ) :
-                      <button class="btn btn-info mb-3" type="button" onClick={null}>Download</button>
-                    }
-                    <button class="btn btn-danger" type="button" onClick={null}>Delete</button>
+                    <Button variant="info" className="mb-3">
+                      Download
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-file-arrow-down-fill" viewBox="0 0 16 16">
+                        <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM8 5a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5A.5.5 0 0 1 8 5z" />
+                      </svg>
+                    </Button>
+
+                    <Button variant="danger" onClick={() => deleteSingleDetail(_id)}>
+                      Delete
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-trash-2">
+                        <polyline points="3 6 5 6 21 6"></polyline> <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line>
+                      </svg>
+                    </Button>
                   </div>
                 </div>
               </td>
-              <td className="text-center"><span className="badge badge-success">Attended</span></td>
+              {/* <td className="text-center"><span className="badge badge-success">Attended</span></td> */}
             </tr>
           );
         })
@@ -160,7 +184,9 @@ const UKTable = () => {
                             {renderTableHeader()}
                           </tr>
                         </thead>
-                        <tbody> {renderBodyData()} </tbody>
+                        {loading ? (<tbody>{renderBodyData()}</tbody>) : (
+                          <PreLoader />
+                        )}
                       </table>
                     </div>
 
@@ -185,6 +211,7 @@ const UKTable = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   )
 }

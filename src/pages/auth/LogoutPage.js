@@ -42,13 +42,12 @@ const LogoutPage = () => {
     } />
   }
 
-
   return (
     <div>
       {/* <button className="btn btn-outline-success" color="" user={user} onClick={logout} style={{ border: "none", marginLeft: "-5px" }}>
         LogOut
       </button> */}
-      <input type="button" className="success" value="Log Out" user={user} onClick={logout} style={{ border: "none", }} />
+      <input type="button" className="success" value="Log Out" user={user} onClick={logout} style={{ backgroundColor: "transparent", color: "#3b3f5c", fontSize: "13px", fontWeight: "700", border: "none" }} />
     </div>
   );
 };
