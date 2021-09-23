@@ -102,6 +102,7 @@ export const httpGetWithToken = async (url) => {
  */
 export const httpDeleteWithToken = async (url, fd) => {
   return new Promise((resolve, reject) => {
+    console.log(fd);
     // const token = localStorage.getItem("token");
     axios.delete(`${baseUrl}${url}`, {
       headers: {
@@ -110,6 +111,7 @@ export const httpDeleteWithToken = async (url, fd) => {
       data: fd
     })
       .then(({ data }) => {
+
         let res = data.response ? data.response : data
         // console.log(data);
         Swal.fire({

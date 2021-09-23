@@ -50,3 +50,20 @@ code {
   color: white;
   background-color: grey;
 }
+
+input[type=checkbox], input[type=radio] {
+  box-sizing: border-box;
+  padding: 0px;
+  margin-top: 5px;
+  margin-right: 15px;
+}
+
+.visibility{
+  position: absolute;
+  right: 0px;
+  cursor: pointer;
+  color: #242b88;
+  font-size: 4rem;
+  font-size: 50px;
+  margin-right: 26px;
+}
