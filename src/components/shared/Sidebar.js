@@ -215,9 +215,6 @@ const SideBar = () => {
             </a>
             <ul className="collapse submenu list-unstyled" id="datatables" data-parent="#accordionExample">
               <li><a href="/work_in_lithuania"> Work in Lithuania </a></li>
-              <li>
-                <a href="table_dt_striped_table.html"> Striped Table </a>
-              </li>
             </ul>
           </li>
 

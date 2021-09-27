@@ -11,7 +11,7 @@ const Navbar = () => {
       <header className="header navbar navbar-expand-sm">
         <ul className="navbar-nav theme-brand flex-row  text-center">
           <li className="nav-item theme-logo">
-            <a href="#/">
+            <a href="??#">
               <img src={logo} className="navbar-logo" alt="logo" />
             </a>
           </li>
@@ -152,7 +152,7 @@ const Navbar = () => {
                     <polyline points="16 17 21 12 16 7" />
                     <line x1={21} y1={12} x2={9} y2={12} />
                   </svg>{" "}
-                  <span><LogoutPage/></span>
+                  <span><LogoutPage /></span>
                 </a>
               </div>
             </div>

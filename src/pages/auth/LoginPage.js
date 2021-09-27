@@ -16,6 +16,7 @@ const LoginPage = () => {
   let history = useHistory();
   const [submitting, setSubmitting] = useState(false);
   const [passwordShown, setPasswordShown] = useState(false);
+  // const [done, setDone] = useState(undefined)
   const [inputValues, setInputValues] = useState({
     email: "",
     password: "",
@@ -76,6 +77,7 @@ const LoginPage = () => {
       // clearForm();
     }
   };
+
 
   useEffect(() => {
 
