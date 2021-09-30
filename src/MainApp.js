@@ -6,7 +6,7 @@ import './App.css';
 
 import PrivateRoute from './protected-routes/ProtectedRoutes'
 
-import LithuaniaTable from './pages/work/LithuaniaTable'
+// import LithuaniaTable from './pages/work/LithuaniaTable'
 import AustraliaTable from './pages/education/AustraliaTable'
 import CanadaTable from './pages/education/CanadaTable'
 import UKTable from './pages/education/UKTable'
@@ -28,7 +28,7 @@ const MainApp = () => {
             <PrivateRoute exact path='/study_in_canada' component={CanadaTable} />
             <PrivateRoute exact path='/study_in_uk' component={UKTable} />
             <PrivateRoute exact path='/study_in_us' component={USTable} />
-            <PrivateRoute exact path='/work_in_lithuania' component={LithuaniaTable} />
+            {/* <PrivateRoute exact path='/work_in_lithuania' component={LithuaniaTable} /> */}
             <PrivateRoute exact path='/contact_us' component={ContactUs} />
             <PrivateRoute exact path='/get_information' component={GetInformation} />
             <PrivateRoute exact path='/profile' component={ProfilePage} />

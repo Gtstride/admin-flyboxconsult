@@ -151,7 +151,7 @@ const SideBar = () => {
             </ul>
           </li>
 
-          <li className="menu menu-heading">
+         {/* <li className="menu menu-heading">
             <div className="heading">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -170,7 +170,7 @@ const SideBar = () => {
               <span>WORK PACKAGE</span>
             </div>
           </li>
-          <li className="menu">
+           <li className="menu">
             <a
               href="#datatables"
               data-toggle="collapse"
@@ -216,7 +216,7 @@ const SideBar = () => {
             <ul className="collapse submenu list-unstyled" id="datatables" data-parent="#accordionExample">
               <li><a href="/work_in_lithuania"> Work in Lithuania </a></li>
             </ul>
-          </li>
+          </li> */}
 
           <li className="menu menu-heading">
             <div className="heading">
@@ -269,7 +269,7 @@ const SideBar = () => {
             </a>
             <ul className="collapse submenu list-unstyled" id="users" data-parent="#accordionExample">
               <li> <a href="/contact_us"> Contact Us </a></li>
-              <li><a href="/get_information"> Get More Information</a></li>
+              <li><a href="/get_information"> Specific Information About...</a></li>
             </ul>
           </li>
         </ul>
