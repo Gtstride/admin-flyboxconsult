@@ -11,7 +11,7 @@ const Navbar = () => {
       <header className="header navbar navbar-expand-sm">
         <ul className="navbar-nav theme-brand flex-row  text-center">
           <li className="nav-item theme-logo">
-            <a href="??#">
+            <a href="#/"  className="disabled">
               <img src={logo} className="navbar-logo" alt="logo" />
             </a>
           </li>
@@ -19,7 +19,7 @@ const Navbar = () => {
           </li>
           <li className="nav-item toggle-sidebar">
             <a
-              href="/#"
+              href="#/"
               className="sidebarCollapse"
               data-placement="bottom"
             >

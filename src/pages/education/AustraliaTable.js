@@ -4,11 +4,12 @@ import React, { useState, useEffect } from 'react'
 import ReactPaginate from 'react-paginate'
 import Swal from "sweetalert2"
 import { Button } from 'react-bootstrap'
+import Spinner from '../../components/Spinner/Spinner'
 
+// Import other-compononets
 import Navbar from '../../components/shared/Navbar'
 import Sidebar from '../../components/shared/Sidebar'
 import Footer from '../../components/shared/Footer'
-import PreLoader from '../../components/shared/PreLoader'
 import { httpGetWithToken, httpDeleteWithToken } from '../../components/helper/api'
 
 
@@ -63,20 +64,19 @@ const AustraliaTable = () => {
 
   useEffect(() => {
     getAllAustraliaFormsSubmitted();
-  }, [])
+  }, []);
 
 
   const renderTableHeader = () => {
     let headerElement =
       [
         "#", "email", "phone_Number", "given_Name", "middle_Name", "family_Name", "birthDate", "house_Address", "immigration_History", "country_Of_Citizenship",
-        "gender", " australia_Denial_Letter", "program_level", "highest_Level_Of_Education", "desired_course_of_study", "action"
+        "gender", "australia_Denial_Letter", "program_level", "highest_Level_Of_Education", "desired_course_of_study", "action"
       ];
     return headerElement.map((key, index) => {
       return <th key={index}>{key.toUpperCase()}</th>;
     });
   };
-  // australiaDenialLetter
 
   const renderBodyData = () => {
     return (
@@ -100,7 +100,20 @@ const AustraliaTable = () => {
               <td>{immigrationHistory}</td>
               <td>{countryOfCitizenship}</td>
               <td>{gender}</td>
-              <td>{visaDenialLetter}</td>
+              <td>
+                Click to Download
+                <div className="dropdown custom-dropdown">
+                  <a className="dropdown-toggle" href="#/" role="button" id="dropdownMenuLink4" data-toggle="dropdown" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width={24} height={24} viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                      strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" className="feather feather-more-horizontal">
+                      <circle cx={12} cy={12} r={1} /> <circle cx={19} cy={12} r={1} /> <circle cx={5} cy={12} r={1} />
+                    </svg>
+                  </a>
+                  <div className="dropdown-menu" style={{ backgroundColor: "rgb(196 220 239)" }} aria-labelledby="dropdownMenuLink4">
+                    <a href={visaDenialLetter} target="_blank" rel="noreferrer">{visaDenialLetter}</a>
+                  </div>
+                </div>
+              </td>
               <td>{programLevel}</td>
               <td>{highestLevelOfEducation}</td>
               <td>{desiredCourseOfStudy}</td>
@@ -129,13 +142,6 @@ const AustraliaTable = () => {
                     </svg>
                   </a>
                   <div className="dropdown-menu" aria-labelledby="dropdownMenuLink4">
-                    <Button variant="info" className="mb-3">
-                      Download
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" className="bi bi-file-arrow-down-fill" viewBox="0 0 16 16">
-                        <path d="M12 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM8 5a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5A.5.5 0 0 1 8 5z" />
-                      </svg>
-                    </Button>
-
                     <Button variant="danger" onClick={() => deleteDetailsFromTable(_id)}>
                       Delete
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-trash-2">
@@ -174,8 +180,8 @@ const AustraliaTable = () => {
                         <thead>
                           <tr>{renderTableHeader()}</tr>
                         </thead>
-                        {loading ? (<tbody>{renderBodyData()}</tbody>) : (
-                          <PreLoader />
+                        {!loading ? <Spinner />  : (
+                         (<tbody>{renderBodyData()}</tbody>)
                         )}
                       </table>
                     </div>

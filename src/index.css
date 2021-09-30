@@ -14,16 +14,12 @@ code {
 
 /* Styles for the pagination Buttons in TrucksTable.js */
 .paginationButton {
-  /* width: 80%; */
-  /* height: 40px; */
   list-style: none;
   display: flex;
-  /* justify-content: center; */
   margin: 0;
   margin-left: 187px;
   /* margin-top: -40px; */
   justify-content: flex-end;
-  /* flex: unset; */
   margin-top: 20px;
 }
 
@@ -64,8 +60,8 @@ input[type=checkbox], input[type=radio] {
   cursor: pointer;
   color: #242b88;
   font-size: 4rem;
-  font-size: 50px;
-  margin-right: 26px;
+  font-size: 60px;
+  margin-right: 40px;
 }
 
 @media screen and (max-width: 992px){
@@ -76,6 +72,20 @@ input[type=checkbox], input[type=radio] {
 
 @media screen and (max-width: 600px){
   .header-container .navbar-nav.theme-brand .theme-logo img {
-     display: none;
+     /* display: none; */
+    position: inherit;
+    width: 99%;
+    border-radius: inherit;
+    background-color: transparent;
   }
 }
+
+input[type="button"] {
+  border: none;
+  background-color: transparent;
+  font-weight: 700;
+  font-size: 19px;
+  text-transform: uppercase;
+  color: chartreuse;
+}
+

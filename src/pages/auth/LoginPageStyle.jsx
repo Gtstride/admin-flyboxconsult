@@ -22,7 +22,11 @@ export const LoginFormStyle = style.div`
 @media screen and (max-width: 640px) {
 	.main-content{width: 90%;}
 	.company__info{
-		display: none;
+		// display: none;
+		position: inherit;
+    width: 99%;
+    border-radius: inherit;
+    background-color: transparent;
 	}
 	.login_form{
 		border-top-left-radius:20px;
