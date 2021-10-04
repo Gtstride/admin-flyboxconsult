@@ -32,11 +32,11 @@ const CanadaTable = () => {
     try {
       setIsLoading(true);
       let res = await httpGetWithToken("canada_forms");
-      console.log(res);
+      // console.log(res);
       setAllCanadaFormsSubmitted(res);
       // setIsLoading(false);
     } catch (error) {
-      console.log(error && error.message)
+      // console.log(error && error.message)
       Swal.fire({
         title: "Sorry 😞",
         text: error.message,
@@ -45,18 +45,21 @@ const CanadaTable = () => {
   };
 
   const deleteDetail = async (id) => {
-    console.log(id)
+    // console.log(id)
     try {
       let response = await httpDeleteWithToken(`canada/${id}`, { id: id });
-      console.log(response);
+      // console.log(response);
       setIsLoading(true);
       Swal.fire({
-        title: "Successfully Deleted",
-        // text: response.data
-      });
+        icon: 'success',
+        // title: 'This record and it`s details has been deleted Successfully!',
+        text: response.message,
+    })
+      window.setTimeout(function(){window.location.reload()},2000)
+      console.warn(response);
       getAllCanadaSubmittedForms();
     } catch (error) {
-      console.log("error", error.response);
+      console.warn("error", error.response);
     }
   }
 
@@ -68,7 +71,7 @@ const CanadaTable = () => {
   const renderTableHeader = () => {
     let headerElement =
       [
-        "#", "email", "phone_Number", "given_Name", "middle_Name", "family_Name", "birthDate", "house_Address", "immigration_History", "country_Of_Citizenship",
+        "#", "email", "phone_Number", "given_Name", "middle_Name", "family_Name", "birth_Date", "house_Address", "immigration_History", "country_Of_Citizenship",
         "gender", " canada_Denial_Letter", "program_level", "highest_Level_Of_Education", "desired_course_of_study", "action"
       ];
     return headerElement.map((key, index) => {
