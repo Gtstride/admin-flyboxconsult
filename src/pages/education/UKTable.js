@@ -52,12 +52,14 @@ const UKTable = () => {
       console.log(response);
       setIsLoading(true);
       Swal.fire({
-        title: "Successfully Deleted",
-        // text: response.data
-      });
+        icon: 'success',
+        // title: 'This record and it`s details has been deleted Successfully!',
+        text: response.message,
+    })
+      window.setTimeout(function(){window.location.reload()},2000)
       getAllUKSubmittedForms();
     } catch (error) {
-      console.log("error", error.response);
+      console.warn("error", error.response);
     }
   }
 
