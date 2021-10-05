@@ -34,15 +34,15 @@ const ContactUs = () => {
       setUser(res);
       // setIsLoading(false);
     } catch (error) {
-      console.log(error && error.message)
+      console.warn(error && error.message)
     }
   };
 
   const deleteContact = async (id) => {
-    console.log(id)
+    // console.log(id)
     try {
       let response = await httpDeleteWithToken(`contacts/${id}`, { id: id });
-      console.log(response);
+      console.warn(response);
       setIsLoading(true);
       Swal.fire({
         icon: 'success',
@@ -51,7 +51,7 @@ const ContactUs = () => {
     })
       getAllContact();
     } catch (error) {
-      console.log("error", error.response);
+      console.warn("error", error.response);
     }
   }
 
