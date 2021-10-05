@@ -55,7 +55,7 @@ const LoginPage = () => {
         password: inputValues.password,
       };
       const response = await httpPostWithNoToken("login", data);
-      console.log(response)
+      // console.log(response)
       // console.log(response);
       // console.log(data);
       Swal.fire({
@@ -73,14 +73,14 @@ const LoginPage = () => {
       // setLoading(false);
     } catch (error) {
       setIsLoaded(false)
-      console.log(error)
+      // console.log(error)
       Swal.fire({
         title: "Sorry 😞",
         text: error.message,
       });
       setIsLoaded(false);
       setSubmitting(false)
-      console.log(isLoaded)
+      console.warn(isLoaded)
       clearForm();
     }
   };
@@ -155,7 +155,7 @@ const LoginPage = () => {
                           <i className="fa fa-refresh fa-spin" style={{ fontSize: "25px" }}></i>
                         )}
                       </button>
-                      <a href="#/reset-password" className="">Forgot Password</a>
+                      <a href="#/reset-password">Forgot Password</a>
                     </div>
                   </form>
                 </div>
