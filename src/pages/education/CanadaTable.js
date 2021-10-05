@@ -56,10 +56,15 @@ const CanadaTable = () => {
         text: response.message,
     })
       window.setTimeout(function(){window.location.reload()},2000)
-      console.warn(response);
+      // console.warn(response);
       getAllCanadaSubmittedForms();
     } catch (error) {
-      console.warn("error", error.response);
+      Swal.fire({
+        icon: 'Sorry',
+        // title: 'This record and it`s details has been deleted Successfully!',
+        text: error.message
+      })
+      // console.warn("error", error.response);
     }
   }
 
