@@ -60,7 +60,7 @@ const LoginPage = () => {
       // console.log(data);
       Swal.fire({
         title: "Successful 😀",
-        text: `${"You have successfully logged in as"} ${data.email} ${"& as a super admin"}`,
+        text: `${"You have successfully logged in as"} ${data.email}.com ${"& as a super admin"}`,
         // type: "success",
       });
       // localStorage.getItem("token", response.)

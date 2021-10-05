@@ -33,11 +33,9 @@ const USTable = () => {
     try {
       setIsLoading(true);
       let res = await httpGetWithToken("us_forms");
-      console.warn(res);
       setAllUSFormsSubmitted(res);
-      // setIsLoading(false);
     } catch (error) {
-      console.warn(error && error.message)
+      // console.warn(error && error.message)
       Swal.fire({
         title: "Sorry 😞",
         text: error.message,
@@ -48,7 +46,6 @@ const USTable = () => {
   const deleteSingleDetail = async (id) => {
     try {
       let response = await httpDeleteWithToken(`us/${id}`, { id: id })
-      console.warn(response)
       setIsLoading(true);
       Swal.fire({
         icon: 'success',
@@ -58,7 +55,12 @@ const USTable = () => {
       window.setTimeout(function(){window.location.reload()},2000)
       getAllUSSubmittedForms();
     } catch (error) {
-      console.warn("error", error.response);
+      // console.warn("error", error.response);
+      Swal.fire({
+        icon: 'Sorry',
+        // title: 'This record and it`s details has been deleted Successfully!',
+        text: error.response
+      })
     }
   }
 

@@ -9,11 +9,7 @@ import Swal from 'sweetalert2'
 import Navbar from '../../components/shared/Navbar'
 import Sidebar from '../../components/shared/Sidebar'
 import Footer from '../../components/shared/Footer'
-// import Loading from '../../components/shared/Loading'
-import {
-  httpGetWithToken,
-  httpDeleteWithToken
-} from '../../components/helper/api'
+import { httpGetWithToken, httpDeleteWithToken } from '../../components/helper/api'
 
 
 const GetInformation = () => {
@@ -36,18 +32,23 @@ const GetInformation = () => {
     try {
       setIsLoading(true);
       let res = await httpGetWithToken("relocation_forms");
-      console.log(res);
+      // console.log(res);
       setUser(res);
       // setIsLoading(false);
     } catch (error) {
-      console.log(error && error.message)
+      // console.log(error && error.message)
+      Swal.fire({
+        icon: 'Error',
+        // title: 'This record and it`s details has been deleted Successfully!',
+        text: error && error.message,
+    })
     }
   };
   const deleteRelocationDetails = async (id) => {
-    console.log(id)
+    // console.log(id)
     try {
       let response = await httpDeleteWithToken(`relocation/${id}`, { id: id });
-      console.log(response);
+      // console.log(response);
       setIsLoading(true);
       Swal.fire({
         icon: 'success',
@@ -56,7 +57,12 @@ const GetInformation = () => {
     })
       getAllGeneralInfo();
     } catch (error) {
-      console.log("error", error.response);
+      // console.log("error", error.response);
+      Swal.fire({
+        icon: 'Sorry ',
+        // title: 'This record and it`s details has been deleted Successfully!',
+        text: error.response,
+    })
     }
   }
 

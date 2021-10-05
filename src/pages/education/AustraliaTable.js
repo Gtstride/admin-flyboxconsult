@@ -33,7 +33,7 @@ const AustraliaTable = () => {
     try {
       setIsLoading(true);
       let res = await httpGetWithToken("australia_forms");
-      console.warn(res);
+      // console.warn(res);
       setAustraliaFormsSubmitted(res);
       // setIsLoading(false);
     } catch (error) {
@@ -47,20 +47,21 @@ const AustraliaTable = () => {
 
 
   const deleteDetailsFromTable = async (id) => {
-    // console.log(id)
     try {
       let response = await httpDeleteWithToken(`australia/${id}`, { id: id });
-      console.warn(response);
       setIsLoading(true);
       Swal.fire({
         icon: 'success',
-        // title: 'This record and it`s details has been deleted Successfully!',
         text: response.message,
     })
       window.setTimeout(function(){window.location.reload()},2000)
       getAllAustraliaFormsSubmitted();
     } catch (error) {
-      console.warn("error", error.response);
+      Swal.fire({
+        icon: 'Sorry',
+        // title: 'This record and it`s details has been deleted Successfully!',
+        text: error.message
+      })
     }
   }
 
