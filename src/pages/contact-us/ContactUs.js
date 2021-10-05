@@ -45,9 +45,10 @@ const ContactUs = () => {
       console.log(response);
       setIsLoading(true);
       Swal.fire({
-        title: "Successfully Deleted",
-        // text: response.data
-      });
+        icon: 'success',
+        // title: 'This record and it`s details has been deleted Successfully!',
+        text: response.message,
+    })
       getAllContact();
     } catch (error) {
       console.log("error", error.response);

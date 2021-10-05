@@ -269,7 +269,7 @@ const SideBar = () => {
             </a>
             <ul className="collapse submenu list-unstyled" id="users" data-parent="#accordionExample">
               <li> <a href="/contact_us"> Contact Us </a></li>
-              <li><a href="/get_information"> Specific Information About...</a></li>
+              <li><a href="/get_information"> Get Information About...</a></li>
             </ul>
           </li>
         </ul>
