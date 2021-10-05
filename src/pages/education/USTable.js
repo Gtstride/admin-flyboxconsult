@@ -33,11 +33,11 @@ const USTable = () => {
     try {
       setIsLoading(true);
       let res = await httpGetWithToken("us_forms");
-      console.log(res);
+      console.warn(res);
       setAllUSFormsSubmitted(res);
       // setIsLoading(false);
     } catch (error) {
-      console.log(error && error.message)
+      console.warn(error && error.message)
       Swal.fire({
         title: "Sorry 😞",
         text: error.message,
@@ -48,7 +48,7 @@ const USTable = () => {
   const deleteSingleDetail = async (id) => {
     try {
       let response = await httpDeleteWithToken(`us/${id}`, { id: id })
-      console.log(response)
+      console.warn(response)
       setIsLoading(true);
       Swal.fire({
         icon: 'success',

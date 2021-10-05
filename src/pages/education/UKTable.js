@@ -33,11 +33,11 @@ const UKTable = () => {
     try {
       setIsLoading(true);
       let res = await httpGetWithToken("uk_forms");
-      console.log(res);
+      console.warn(res);
       setAllUKFormsSubmitted(res);
       // setIsLoading(false);
     } catch (error) {
-      console.log(error && error.message)
+      console.warn(error && error.message)
       Swal.fire({
         title: "Sorry 😞",
         text: error.message,
@@ -46,10 +46,10 @@ const UKTable = () => {
   };
 
   const deleteSingleDetail = async (id) => {
-    console.log(id)
+    console.warn(id)
     try {
       let response = await httpDeleteWithToken(`uk/${id}`, { id: id });
-      console.log(response);
+      console.warn(response);
       setIsLoading(true);
       Swal.fire({
         icon: 'success',
