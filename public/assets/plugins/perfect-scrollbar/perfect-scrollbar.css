@@ -37,7 +37,7 @@
   opacity: 0;
   transition: background-color .2s linear, opacity .2s linear;
   -webkit-transition: background-color .2s linear, opacity .2s linear;
-  width: 10px;
+  /* width: 10px; */
   /* there must be 'right' or 'left' for ps__rail-y */
   right: 0;
   /* please don't change 'position' */
@@ -91,7 +91,8 @@
 
 .ps__rail-y:hover > .ps__thumb-y, .ps__rail-y:focus > .ps__thumb-y, .ps__rail-y.ps--clicking .ps__thumb-y {
   background-color: #e3e4eb;
-  width: 6px; }
+  width: 6px; 
+}
 
 /* MS supports */
 @supports (-ms-overflow-style: none) {

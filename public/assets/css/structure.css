@@ -912,8 +912,8 @@ code {
     height: calc(100vh - 282px) !important; }
     #sidebar ul.menu-categories.ps .ps__rail-y:hover {
       background-color: transparent; }
-    #sidebar ul.menu-categories.ps:hover > .ps__rail-y .ps__thumb-y {
-      background-color: #888ea8; }
+    /* #sidebar ul.menu-categories.ps:hover > .ps__rail-y .ps__thumb-y {
+      background-color: #888ea8; } */
 
 .sidebar-closed #sidebar:hover ul.menu-categories.ps {
   height: calc(100vh - 282px) !important; }
