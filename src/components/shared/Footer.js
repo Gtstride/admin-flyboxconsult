@@ -7,7 +7,7 @@ const Footer = () => {
         <div className="footer-section f-section-1">
           <p className="true">
             Copyright © 2021{" "}
-            <a target="_blank" rel="noreferrer" href="https://designreset.com"> ELYNORE TECH </a> , All rights reserved.
+            <a target="_blank" rel="noreferrer" href="https://elynore_tech.com"> ELYNORE TECH </a> , All rights reserved.
           </p>
         </div>
         <div className="footer-section f-section-2">

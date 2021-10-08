@@ -1,6 +1,7 @@
 import React from 'react'
 import Navbar from '../../components/shared/Navbar'
 import SideBar from '../../components/shared/Sidebar'
+import Footer from '../../components/shared/Footer'
 
 const Dashboard = () => {
   return (
@@ -26,6 +27,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
